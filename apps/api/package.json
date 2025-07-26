@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "node dist/app.js",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "dependencies": {
+    "fastify": "^5.4.0",
+    "fastify-plugin": "^5.0.1"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^24.1.0",
+    "eslint": "^9.31.0",
+    "typescript": "^5.8.3"
+  }
+}
