@@ -1,0 +1,27 @@
+name: 'Main Branch Merge Policy'
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+    branches:
+      - main
+
+jobs:
+  branch-name-check:
+    name: 'Branch Name Check'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate branch name
+        run: |
+          # The source branch name for a pull request is in the github.head_ref variable
+          branch_name="${{ github.head_ref }}"
+          allowed_pattern="^release/v?[^/]+/[^/]+/[^/]+|^hotfix/[^/]+$"
+
+          if [[ $branch_name =~ $allowed_pattern ]]; then
+            echo "✅ Branch name '${branch_name}' is valid."
+            exit 0
+          else
+            echo "❌ ERROR: Branch name '${branch_name}' cannot be merged into main."
+            echo "Allowed patterns are: 'release/*/*/*', 'release/v*/*/*', or 'hotfix/*'."
+            exit 1
+          fi
