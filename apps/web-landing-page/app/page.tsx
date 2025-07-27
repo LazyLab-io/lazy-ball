@@ -35,9 +35,8 @@ export default function PongLanding() {
       return;
     }
 
-    // Set canvas dimensions
-    canvas.width = 400;
-    canvas.height = 300;
+    canvas.width = 320;
+    canvas.height = 220;
 
     // Game state
     const ball: Ball = {
@@ -220,8 +219,8 @@ export default function PongLanding() {
             <div className="relative">
               <canvas
                 ref={canvasRef}
-                width={400}
-                height={300}
+                // width={400}
+                // height={300}
                 className="border border-gray-700 rounded-lg shadow-2xl"
               />
               <div className="absolute -top-4 -right-4 bg-violet-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
