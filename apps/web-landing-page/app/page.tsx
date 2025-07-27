@@ -2,12 +2,12 @@
 
 import type React from "react"
 
-import { useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { useEffect, useRef } from "react"
+// import { Button } from "@/components/ui/button"
+// import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Gamepad2, Users, Keyboard, Zap, Trophy } from "lucide-react"
+import { Gamepad2, Users, Keyboard, /* Zap, */ Trophy } from "lucide-react"
 
 interface Ball {
   x: number
@@ -24,7 +24,7 @@ interface Paddle {
 export default function PongLanding() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number>()
-  const [email, setEmail] = useState("")
+  // const [email, setEmail] = useState("")
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -164,12 +164,12 @@ export default function PongLanding() {
     }
   }, [])
 
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle email submission here
-    console.log("Email submitted:", email)
-    setEmail("")
-  }
+  // const handleEmailSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   // Handle email submission here
+  //   console.log("Email submitted:", email)
+  //   setEmail("")
+  // }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900">
