@@ -3,10 +3,10 @@ import Fastify from "fastify";
 const fastify = Fastify({ logger: true });
 
 fastify.get("/", function (request, reply) {
-  reply.send({ hello: "world" });
+  reply.send({ hello: "from API service" });
 });
 
-fastify.listen({ port: 3000 }, function (err) {
+fastify.listen({ port: 3000, host: "0.0.0.0" }, function (err) {
   if (err) {
     fastify.log.error(err);
     process.exit(1);
