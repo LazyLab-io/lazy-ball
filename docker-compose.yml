@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
-      target: dev
+      target: prod
       args:
         - APP_NAME=api
     command: pnpm --filter api run start

@@ -9,7 +9,7 @@ ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN apk add --no-cache libc6-compat && corepack enable
 # PREPARE PNPM: Install the exact pnpm version to prevent Corepack's download prompt
-#RUN corepack prepare pnpm@10.13.1 --activate
+RUN corepack prepare pnpm@10.13.1 --activate
 
 # ==============================================================================
 # STAGE 2: pruner
@@ -41,7 +41,7 @@ FROM installer AS builder
 WORKDIR /app
 ARG APP_NAME
 COPY --from=pruner /app/out/full/ .
-RUN pnpm run build
+RUN pnpm run build --filter ${APP_NAME}
 
 # ==============================================================================
 # STAGE 5: runner (Final Production Image)
