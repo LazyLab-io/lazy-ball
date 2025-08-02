@@ -6,7 +6,8 @@ services:
       target: dev
       args:
         - APP_NAME=api
-    command: pnpm --filter api run dev
+    command: pnpm --filter api run start
+#    command: tail -f /dev/null
     ports:
       - "3000:3000"
     environment:
@@ -14,7 +15,7 @@ services:
     volumes:
       - ./apps/api:/app/apps/api
       - /app/node_modules
-      - /app/apps/api/node_modules #not sure what this is doing.
+      - /app/apps/api/node_modules
     networks:
       - app-network
 
