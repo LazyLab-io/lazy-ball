@@ -69,7 +69,7 @@ ENV NODE_ENV production
 EXPOSE 3000
 # Define the command to start the application.
 WORKDIR /app/apps/${APP_NAME}
-CMD ["node", "dist/app.js"]
+CMD ["node", "./dist/app.js"]
 
 # ==============================================================================
 # STAGE 6: dev (Development Image)
