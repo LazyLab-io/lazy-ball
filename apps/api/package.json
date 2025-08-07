@@ -8,7 +8,9 @@
     "start": "node ./dist/app.js",
     "dev": "nodemon -L --watch 'src/**/*.ts' --ext ts --exec 'node --loader ts-node/esm src/app.ts'",
     "lint": "eslint . --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "docker:build": "docker build --target=prod -t lazylab/api:latest -f ./Dockerfile --build-arg APP_NAME=api ../../",
+    "docker:push": "docker buildx build --platform linux/amd64,linux/arm64 --target prod -t aldokezer/lazyball-feature-docker-setup:latest --build-arg APP_NAME=api -f ./Dockerfile --push ../../"
   },
   "keywords": [],
   "author": "",

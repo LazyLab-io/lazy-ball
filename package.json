@@ -10,8 +10,13 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "clean": "find ./ -name node_modules -type d -exec rm -rf {} +",
-    "docker:dev": "docker compose -f docker-compose.yml up --remove-orphans -V",
-    "docker:build": "docker compose -f docker-compose.yml build"
+    "//": "--- Local Development Scripts ---",
+    "dev:docker:dev": "docker compose -f docker-compose.yml up --remove-orphans",
+    "dev:docker:build": "docker compose -f docker-compose.yml build",
+    "dev:docker:fresh": "docker compose -f docker-compose.yml up --build --renew-anon-volumes",
+    "dev:docker:down": "docker compose -f docker-compose.yml down",
+    "//": "--- Production Image Build ---",
+    "docker:build": "turbo run docker:build"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
